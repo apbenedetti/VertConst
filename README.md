@@ -95,7 +95,7 @@ This is what we would see with the provided example (remember that the columns a
 	  22222222222
 	1 2 1 3 2 1 0 1
 
-##Cycles
+####Cycles
 
 The tricky part of this algorithm is when we have what are called cycles. These occur when a series of heads compared to tails, produce an infinite loop. These can be only two nets going back and forth, three different nets, or every net in the problem. Here is an example of a cycle including all nets...
 

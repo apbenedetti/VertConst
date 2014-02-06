@@ -26,12 +26,7 @@ We must identify vertical constraints. The vertical constraints are representati
 
 Any terminals that are NOT across from the same number, or across from a 0, are a vertical constraint, also called an "edge." If we observe the first column, we see that this is an edge because we have two different non-zeros; 3 & 1. Net 1 and net 3 are governed by this edge; net 3 comes down from the top, and net 1 comes up from the bottom so net 3 must occupy a row above net 1. They can not overlap because they occupy the same physical layer in the integrated circuit.
 
-We can remove the non-edges, as these do not pose a problem for layout compaction...
-
-	3 **2 1** 4 1 **0 2** 4
-	1 **2 1** 3 2 **1 0** 1
-
-And we are left with the edges...
+We can remove the non-edges, as these do not pose a problem for layout compaction and we are left with the edges...
 
 	3 4 1 4
 	1 3 2 1
@@ -93,12 +88,12 @@ The remainder of the algorithm uses the Vertical Constraint Graph to fill in the
 
 This is what we would see with the provided example (remember that the columns are on another physical layer so they are not present)...
 
-	**3 2 1 4 1 0 2 4**
+	3 2 1 4 1 0 2 4
 	      444444444
 	3333333
 	111111111111111
 	  22222222222
-	**1 2 1 3 2 1 0 1**
+	1 2 1 3 2 1 0 1
 
 ##Cycles
 
@@ -121,10 +116,10 @@ For these cases, the last constraint that was analyzed in the Adjacency Matrix i
 
 Notably, what needs to happen in these cases is that an addition column has to be added for every cycle so that the separated net can be connected (recall that the vertical connections are on a different physical layer). A possible solution we would see for the provided example would be:
 
-	**4 3 2 1 0**
+	4 3 2 1 0
 	      111
 	4444444
 	22222
 	  333
 	  1111111
-	**2 1 3 4 0**
+	2 1 3 4 0

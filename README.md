@@ -6,9 +6,9 @@ This algorithm was created in an electrical engineering graduate course entitled
 
 A number of algorithms were demonstrated in the lectures on paper, and the goal of the course project was to implement one of these algorithms in code.
 
-The project I chose was in IC layout compaction, specifically in channel routing. A simple way to explain this would be that in an integrated circuit design there are two chips are separated by a space, or "channel."" Each chip has several terminals that have to connect to either terminals on the other chip, and/or other terminals on itself, or to nothing. The goal of channel routing is to adhere to constraints, either vertical or horizontal, while ensuring the interconnects are present and correct. Interconnects connect 2+ terminals in what is called a net. In this particular design, the interconnects are orthogonal (intersect at right-angles).
+The project I chose was in IC layout compaction, specifically in channel routing. A simple way to explain this would be that in an integrated circuit design there are two chips separated by a space, or "channel." Each chip has several terminals that have to connect to either terminals on the other chip, and/or other terminals on itself, or to nothing. The goal of channel routing is to adhere to constraints, either vertical or horizontal, while ensuring the interconnects are present and correct. Interconnects connect 2+ terminals in what is called a net. In this particular design, the interconnects are orthogonal (intersect at right-angles).
 
-Layout compaction problems are represented by 2 rows of terminals denoted by the net in which they belong to; oriented top and bottom. Columns and rows are constructed on different physical layers on the ICs, so we are only interested in determining the order that the rows will occupy the channel.
+Layout compaction problems are represented by 2 rows of terminals, where each terminal is denoted by the net in which they belong to; oriented top and bottom. Columns and rows are constructed on different physical layers on the ICs, so we are only interested in determining the order that the rows will occupy the channel.
 
 When only horizontal constraints exist, it is easy to implement as we don't care about how wide the channel gets (vertically). A very simple way to solve is give a net its own row. However, my problem deals exclusively with vertical constraints, which requires keeping the channel as narrow (vertically) as possible. The Vertical Constraint Graph was the chosen as the algorithm to solve this problem.
 
@@ -20,6 +20,7 @@ The language I chose for the project was Matlab, due to its native use of matric
 Given a channel...
 
 	3 2 1 4 1 0 2 4
+	
 	1 2 1 3 2 1 0 1
 
 We must identify vertical constraints. The vertical constraints are representative of the rules that must be followed in ordering the interconnects.
@@ -29,6 +30,7 @@ Any terminals that are NOT across from the same number, or across from a 0, are 
 We can remove the non-edges, as these do not pose a problem for layout compaction and we are left with the edges...
 
 	3 4 1 4
+	
 	1 3 2 1
 
 We call the top row the "tails" of the edges and the bottom row the "heads" of the edges.
@@ -100,6 +102,7 @@ This is what we would see with the provided example (remember that the columns a
 The tricky part of this algorithm is when we have what are called cycles. These occur when a series of heads compared to tails, produce an infinite loop. These can be two nets going back and forth, three different nets looping, or every net in the problem. Here is an example of a cycle including all nets...
 
 	4 3 2 1
+	
 	2 1 3 4
 
 ...which produces four different Vertical Constraint Graphs. One being:

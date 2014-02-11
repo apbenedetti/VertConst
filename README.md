@@ -22,7 +22,7 @@ Given a channel...
 
 We must identify vertical constraints. The vertical constraints are representative of the rules that must be followed in ordering the interconnects.
 
-Any terminals that are NOT across from the same number, or across from a 0, are a vertical constraint, also called an "edge." If we observe the first column, we see that this is an edge because we have two different non-zeros; 3 & 1. Net 1 and net 3 are governed by this edge; net 3 comes down from the top, and net 1 comes up from the bottom so net 3 must occupy a row above net 1. They can not overlap because they occupy the same physical layer in the integrated circuit.
+Any terminals that are **not** across from the same number or a 0 are a vertical constraint, also called an "edge." If we observe the first column, we see that this is an edge because we have two different non-zeros; 3 & 1. Net 1 and net 3 are governed by this edge; net 3 comes down from the top, and net 1 comes up from the bottom so net 3 must occupy a row above net 1. They can not overlap because they occupy the same physical layer in the integrated circuit.
 
 We can remove the non-edges, as these do not pose a problem for layout compaction and we are left with the edges...
 

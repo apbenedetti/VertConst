@@ -1,4 +1,5 @@
-#VertConst
+VertConst
+=========
 This algorithm was created in an electrical engineering graduate course entitled *Computer Methodologies for Digital/RF Design*. The course taught algorithms, specifically used in CAD software for integrated chip design. There is little real-world application of the content taught in the course, but it provided me with the opportunity to work on my coding.
 
 A number of algorithms were demonstrated in the lectures on paper, and the goal of the course project was to implement one of these algorithms in code.
@@ -12,7 +13,8 @@ When only horizontal constraints exist, it is easy to implement as we don't care
 The language I chose for the project was Matlab, due to its native use of matrices. I envisioned that manipulating matrices would be the simplest way of representing the changing diagram.
 
 
-#The Algorithm
+The Algorithm
+=============
 
 Given a channel...
 
@@ -94,7 +96,8 @@ This is what we would see with the provided example (remember that the columns a
 	  22222222222
 	1 2 1 3 2 1 0 1
 
-##Cycles
+Cycles
+------
 
 The tricky part of this algorithm is when we have what are called cycles. These occur when a series of heads compared to tails, produce an infinite loop. These can be two nets going back and forth, three different nets looping, or every net in the problem. Here is an example of a cycle including all nets...
 
